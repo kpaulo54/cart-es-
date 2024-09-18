@@ -10,9 +10,10 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #1E1E1E; /* Fundo mais escuro e estiloso */
+            background-color: #1E1E1E; /* Fundo inicial */
             margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.5s ease-in-out; /* Transição suave ao trocar o fundo */
         }
 
         h1 {
@@ -86,6 +87,23 @@
         /* Adicionando brilho especial */
         .card:hover .card-face {
             box-shadow: 0 12px 24px rgba(255, 215, 0, 0.4); /* Brilho dourado no hover */
+        }
+
+        /* Botão para mudar o fundo */
+        .change-bg-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #FFF;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .change-bg-button:hover {
+            background-color: #45A049; /* Efeito hover no botão */
         }
     </style>
 </head>
@@ -168,10 +186,27 @@
         </div>
 
     </div>
+
+    <!-- Botão para trocar o fundo -->
+    <button class="change-bg-button" onclick="trocarFundo()">Trocar Fundo</button>
 </div>
 
 <script>
     // JavaScript para virar os cartões é acionado diretamente pelo evento onclick
+
+    // Função para trocar a cor de fundo
+    function trocarFundo() {
+        const cores = ['#1E1E1E', '#4CAF50', '#3498DB', '#FF5733', '#8E44AD'];
+        const corAtual = document.body.style.backgroundColor;
+        let novaCor;
+
+        // Gera uma nova cor diferente da atual
+        do {
+            novaCor = cores[Math.floor(Math.random() * cores.length)];
+        } while (novaCor === corAtual);
+
+        document.body.style.backgroundColor = novaCor;
+    }
 </script>
 
 </body>
