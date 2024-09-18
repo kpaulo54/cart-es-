@@ -107,93 +107,7 @@
         }
     </style>
 </head>
-<body>
-
-<div class="container">
-    <h1>Flashcards de Conhecimento</h1>
-
-    <div class="card-stack">
-        <!-- Cartão 1 -->
-        <div class="card-container">
-            <div class="card" onclick="this.classList.toggle('flipped')">
-                <div class="card-face front">
-                    Qual é a capital da França?
-                </div>
-                <div class="card-face back">
-                    Paris
-                </div>
-            </div>
-        </div>
-
-        <!-- Cartão 2 -->
-        <div class="card-container">
-            <div class="card" onclick="this.classList.toggle('flipped')">
-                <div class="card-face front">
-                    Quem escreveu "Dom Casmurro"?
-                </div>
-                <div class="card-face back">
-                    Machado de Assis
-                </div>
-            </div>
-        </div>
-
-        <!-- Cartão 3 -->
-        <div class="card-container">
-            <div class="card" onclick="this.classList.toggle('flipped')">
-                <div class="card-face front">
-                    Qual é o maior planeta do sistema solar?
-                </div>
-                <div class="card-face back">
-                    Júpiter
-                </div>
-            </div>
-        </div>
-
-        <!-- Cartão 4 -->
-        <div class="card-container">
-            <div class="card" onclick="this.classList.toggle('flipped')">
-                <div class="card-face front">
-                    O que significa "DNA"?
-                </div>
-                <div class="card-face back">
-                    Ácido desoxirribonucleico
-                </div>
-            </div>
-        </div>
-
-        <!-- Cartão 5 -->
-        <div class="card-container">
-            <div class="card" onclick="this.classList.toggle('flipped')">
-                <div class="card-face front">
-                    Qual é a fórmula da água?
-                </div>
-                <div class="card-face back">
-                    H₂O
-                </div>
-            </div>
-        </div>
-
-        <!-- Cartão 6 -->
-        <div class="card-container">
-            <div class="card" onclick="this.classList.toggle('flipped')">
-                <div class="card-face front">
-                    Quem foi Albert Einstein?
-                </div>
-                <div class="card-face back">
-                    Físico teórico que desenvolveu a teoria da relatividade.
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- Botão para trocar o fundo -->
-    <button class="change-bg-button" onclick="trocarFundo()">Trocar Fundo</button>
-</div>
-
-<script>
-    // JavaScript para virar os cartões é acionado diretamente pelo evento onclick
-
+<body><script>
     // Função para trocar a cor de fundo
     function trocarFundo() {
         const cores = ['#1E1E1E', '#4CAF50', '#3498DB', '#FF5733', '#8E44AD'];
@@ -207,7 +121,87 @@
 
         document.body.style.backgroundColor = novaCor;
     }
+
+    // Muda a cor de fundo a cada 2 segundos
+    setInterval(trocarFundo, 2000);
+</script>
+
+
+<div class="container">
+    <h1>Flashcards de Conhecimento</h1>
+
+    <div class="card-stack">
+        <!-- Cartões como antes -->
+        <div class="card-container">
+            <div class="card" onclick="this.classList.toggle('flipped')">
+                <div class="card-face front">
+                    Qual é a capital da França?
+                </div>
+                <div class="card-face back">
+                    Paris
+                </div>
+            </div>
+        </div>
+
+        <!-- Mais cartões... -->
+        <div class="card-container">
+            <div class="card" onclick="this.classList.toggle('flipped')">
+                <div class="card-face front">
+                    Quem escreveu "Dom Casmurro"?
+                </div>
+                <div class="card-face back">
+                    Machado de Assis
+                </div>
+            </div>
+        </div>
+
+        <!-- Continue adicionando os outros cartões aqui... -->
+
+    </div>
+
+    <!-- Botão para parar a troca de fundo -->
+    <button class="change-bg-button" onclick="pararTrocaFundo()">Parar Fundo LED</button>
+</div>
+
+<script>
+    let intervaloFundo;
+
+    // Função para trocar a cor de fundo a cada 1 segundo
+    function iniciarTrocaFundo() {
+        const cores = ['#1E1E1E', '#4CAF50', '#3498DB', '#FF5733', '#8E44AD'];
+        intervaloFundo = setInterval(() => {
+            const novaCor = cores[Math.floor(Math.random() * cores.length)];
+            document.body.style.backgroundColor = novaCor;
+        }, 1000); // Troca a cada 1 segundo
+    }
+
+    // Chama a função para iniciar a troca de fundo
+    iniciarTrocaFundo();
+
+    // Função para parar a troca de fundo
+    function pararTrocaFundo() {
+        clearInterval(intervaloFundo);
+    }
 </script>
 
 </body>
 </html>
+<script>
+    // Função para trocar a cor de fundo
+    function trocarFundo() {
+        const cores = ['#1E1E1E', '#4CAF50', '#3498DB', '#FF5733', '#8E44AD'];
+        const corAtual = document.body.style.backgroundColor;
+        let novaCor;
+
+        // Gera uma nova cor diferente da atual
+        do {
+            novaCor = cores[Math.floor(Math.random() * cores.length)];
+        } while (novaCor === corAtual);
+
+        document.body.style.backgroundColor = novaCor;
+    }
+
+    // Muda a cor de fundo a cada 2 segundos
+    setInterval(trocarFundo, 2000);
+</script>
+
